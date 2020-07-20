@@ -1,22 +1,27 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
+# For this assignment, the matrix supplied is always invertible.
+
 ## Write a short comment describing this function
 # This function creates a special "matrix" object that can cache its inverse.
-# n: Square matrix order. Optional
+
+rm(list=ls()) #removes all variables currently loaded into memory in R
+
+# n: Square matrix order. Optional n:1:16 for a matrix 4x4
 # mean=0
 # sd: standard deviation
 
 ## @x: a square invertible matrix
 ## return: a list containing functions to
-##   1. set the matrix
-##   2. get the matrix
-##   3. set the inverse
-##   4. get the inverse
+##   1. set the matrix ---set
+##   2. get the matrix ---get
+##   3. set the inverse --setinv
+##   4. get the inverse --getinv
 ##   this list is used as the input to cacheSolve() function
 
-
-makeCacheMatrix <- function(x = matrix(),n=4,mean=0,sd=1) {
+# makeCacheMatrix <- function(x = matrix(),n=4,mean=0,sd=1)
+makeCacheMatrix <- function(x = matrix()) {
   #x <-matrix(rnorm(n,mean,sd),nrow=n, ncol=n)
   inv = NULL
   set = function(y) {
@@ -65,5 +70,15 @@ cacheSolve <- function(x, ...) {
   
   return(inv)
   
-  invx<-solve(x)
+  # invx<-solve(x)
 }
+
+
+
+# To test the above functions, type in the console each one of the following commands
+# pmat <-makeCacheMatrix(matrix(rnorm(10,0,2),nrow=4, ncol=4))
+# pmat$get()
+# pmat$getinv()
+# --NULL
+# cacheSolve(pmat)
+# pmat$getinv()
